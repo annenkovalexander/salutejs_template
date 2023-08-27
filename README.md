@@ -1,4 +1,4 @@
-# SaluteJS. _Template project_&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; [![Salute](https://developers.sber.ru/docs/img/badges/SaluteJS.png) ](https://developers.sber.ru/docs/ru/va/reference/js-framework/overview)
+# SaluteJS. _Template project_&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[![Salute](https://developers.sber.ru/docs/img/badges/SaluteJS.png) ](https://developers.sber.ru/docs/ru/va/reference/js-framework/overview)
 &emsp;**_SaluteJS_** is opensource framework for virtual assistant scenario creation. SaluteJS is suitable for both CanvasApp and ChatApp. Current project is a template SaluteJS project which contains necessary and sufficient functions to start your own scenario. 
 
 - Start project locally
