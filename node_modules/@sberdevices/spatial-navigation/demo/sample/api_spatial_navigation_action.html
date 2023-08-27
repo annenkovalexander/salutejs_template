@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="application-name" content="`spatial-navigation-action` CSS Property">
+    <meta name="author" content="Jihye Hong">
+    <meta name="description" content="<code>spatial-navigation-action</code> CSS Property can define the spatial navigation behavior for the scrollable element.">
+    <link rel="stylesheet" href="spatnav-style.css">
+    <script src="spatnav-utils.js"></script>
+    <script src="../../polyfill/spatial-navigation-polyfill.js"></script>
+  </head>
+  <body>
+    <form style="width: 750px; margin: 20px auto;">
+      <fieldset>
+        <legend>Option</legend>
+        <div>
+          <span>Initial number of elements: <input id="itemNum" type="number" value="10" min="1" max="100"></input></span>
+          <span style="margin-left: 10px;">
+            spatial-navigation-action :
+            <select id="behavior" style="margin:0px 20px;">
+              <option value="auto" selected>auto</option>
+              <option value="focus">focus</option>
+              <option value="scroll">scroll</option>
+            </select>
+          </span>
+        </div>
+      </fieldset>
+    </form>
+    <div class="wrapper">
+
+      <!-- Feed Section starts -->
+      <div id="feed" tabindex="0" style="--spatial-navigation-action: auto;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+          esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+      <!-- Feed Section end -->
+
+    </div>
+  </body>
+  <script type="text/javascript">
+    const itemNum = document.getElementById('itemNum');
+    const behaviorOption = document.getElementById('behavior');
+    const container = document.getElementById('feed');
+
+    document.body.onload = initBoxes(container, itemNum.value);
+
+    function initBoxes(root, amount) {
+      for (let i = 0; i < amount; i++) {
+        root.innerHTML += `<div class= "item" tabindex="0" style="background-color: #${getRandomInt(100, 800)};"></div>`;
+      }
+    }
+
+    function updateBoxes(root, amount) {
+      root.innerHTML = '';
+      for (let i = 0; i < amount; i++) {
+        root.innerHTML += `<div class= "item" tabindex="0" style="background-color: #${getRandomInt(100, 800)};"></div>`;
+      }
+    }
+
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    itemNum.addEventListener('change', function (e) {
+      e.target.value = Math.max(1, e.target.value);
+      e.target.value = Math.min(100, e.target.value);
+      updateBoxes(container, e.target.value);
+    });
+    behaviorOption.addEventListener('change', function (e) {
+      container.style.setProperty("--spatial-navigation-action", behaviorOption.value);
+    });
+  </script>
+</html>
